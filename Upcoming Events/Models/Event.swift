@@ -12,9 +12,23 @@ struct Event {
 	let title: String
 	let startDate: Date
 	let endDate: Date
+
+	var dateInterval: DateInterval {
+		return DateInterval(start: startDate, end: endDate)
+	}
+
+	func conflictsWith(_ otherEvent: Event) -> Conflict? {
+		guard let overlap = dateInterval.intersection(with: otherEvent.dateInterval) else { return nil }
+
+		return overlap.duration > 0 ? Conflict(self, otherEvent) : nil
+	}
 }
 
-extension Event: Equatable {}
+extension Event: Comparable, Hashable {
+	static func < (lhs: Event, rhs: Event) -> Bool {
+		lhs.startDate < rhs.startDate
+	}
+}
 
 extension Event: Decodable {
 	enum CodingKeys: String, CodingKey {
@@ -23,20 +37,18 @@ extension Event: Decodable {
 		case endDate = "end"
 	}
 
+	static let dateFormatter: DateFormatter = {
+		let formatter =  DateFormatter()
+		formatter.calendar = Calendar(identifier: .iso8601)
+		formatter.locale = Locale(identifier: "en_US_POSIX")
+		formatter.dateFormat = "MMMM d, yyyy h:mm a"
+		return formatter
+	}()
+
 	static func eventsFromJSON(_ json: Data) throws -> [Event] {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .formatted(dateFormatter)
 		let result = try decoder.decode([Event].self, from: json)
 		return result
 	}
-
-	// MARK: - Private
-
-	private static let dateFormatter: DateFormatter = {
-		let formatter =  DateFormatter()
-		formatter.calendar = Calendar(identifier: .iso8601)
-		formatter.locale = Locale(identifier: "en_US_POSIX")
-		formatter.dateFormat = "MMMM d, YYYY h:mm a"
-		return formatter
-	}()
 }

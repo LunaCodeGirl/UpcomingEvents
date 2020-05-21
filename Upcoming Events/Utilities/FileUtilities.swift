@@ -1,5 +1,5 @@
 //
-//  Utilities.swift
+//  FileUtilities.swift
 //  Upcoming Events
 //
 //  Created by Luna Comerford on 5/20/20.
@@ -45,3 +45,4 @@ struct FileUtilities {
 		}
 	}
 }
+

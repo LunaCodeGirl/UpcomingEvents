@@ -1,15 +1,14 @@
 //
-//  Upcoming_EventsTests.swift
+//  EventsViewModelTests.swift
 //  Upcoming EventsTests
 //
-//  Created by Luna Comerford on 5/19/20.
+//  Created by Luna Comerford on 5/21/20.
 //  Copyright © 2020 Luna Comerford. All rights reserved.
 //
 
 import XCTest
-@testable import Upcoming_Events
 
-class Upcoming_EventsTests: XCTestCase {
+class EventsViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
