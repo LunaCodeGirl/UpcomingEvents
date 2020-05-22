@@ -74,5 +74,33 @@ class ConflictTests: XCTestCase {
 
 		XCTAssertEqual(expectedConflicts, generatedConflicts)
 	}
-
 }
+
+class ConflictPerformanceTests: XCTestCase {
+	static let inputSizesToMeasure = [100, 1000, 10000, 100000]
+
+	var n: Int!
+
+	override class var defaultTestSuite: XCTestSuite {
+		let testSuite = super.defaultTestSuite
+
+		self.inputSizesToMeasure.forEach { n in
+			let dynamicTest = ConflictPerformanceTests(selector: #selector(measurePerformanceOfConflictGeneration))
+			dynamicTest.n = n
+			testSuite.addTest(dynamicTest)
+		}
+
+		return testSuite
+	}
+
+	func measurePerformanceOfConflictGeneration() {
+		XCTContext.runActivity(named: "Conflict generation performance with \(String(describing: n)) events", block: { _ in
+			let events = Event.createMockEvents(count: n)
+
+			measure {
+				let _ = Conflict.generateConflictsFromEvents(events)
+			}
+		})
+	}
+}
+

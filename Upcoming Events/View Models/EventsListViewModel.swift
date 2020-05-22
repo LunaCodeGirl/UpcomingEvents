@@ -1,5 +1,5 @@
 //
-//  EventsViewModel.swift
+//  EventsListViewModel.swift
 //  Upcoming Events
 //
 //  Created by Luna Comerford on 5/21/20.
@@ -9,13 +9,15 @@
 import Foundation
 import Combine
 
-class EventsViewModel: ObservableObject {
+class EventsListViewModel: ObservableObject {
 
 	let events: [Event]
-	let eventToConflictsMap: [Event:[Conflict]]
 
-	init() {
-		events = try! Event.eventsFromJSON(FileUtilities.getDataFromFile(named: "mock_events_2.json")!).sorted()
+	init(events: [Event]) {
+		self.events = events
+	}
+	
+	lazy var eventToConflictsMap: [Event:[Conflict]] = {
 		let conflicts = Conflict.generateConflictsFromEvents(events)
 		var eventToConflictsMap:[Event:[Conflict]] = [:]
 
@@ -33,6 +35,6 @@ class EventsViewModel: ObservableObject {
 			appendConflictToEventArray(conflict.second)
 		}
 
-		self.eventToConflictsMap = eventToConflictsMap
-	}
+		return eventToConflictsMap
+	}()
 }

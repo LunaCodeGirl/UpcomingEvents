@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		BD120EE92474F4590094B0F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD120EE82474F4590094B0F7 /* AppDelegate.swift */; };
 		BD120EEB2474F4590094B0F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD120EEA2474F4590094B0F7 /* SceneDelegate.swift */; };
-		BD120EED2474F4590094B0F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD120EEC2474F4590094B0F7 /* ContentView.swift */; };
+		BD120EED2474F4590094B0F7 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD120EEC2474F4590094B0F7 /* EventList.swift */; };
 		BD120EEF2474F45C0094B0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD120EEE2474F45C0094B0F7 /* Assets.xcassets */; };
 		BD120EF22474F45C0094B0F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD120EF12474F45C0094B0F7 /* Preview Assets.xcassets */; };
 		BD120EF52474F45C0094B0F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD120EF32474F45C0094B0F7 /* LaunchScreen.storyboard */; };
 		BD120F0B2474F45C0094B0F7 /* UpcomingEventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD120F0A2474F45C0094B0F7 /* UpcomingEventsUITests.swift */; };
+		BD26716B24782BCB00E0EDC5 /* DateStepperControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26716A24782BCB00E0EDC5 /* DateStepperControl.swift */; };
+		BD26716D24782D8800E0EDC5 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26716C24782D8800E0EDC5 /* DayViewModel.swift */; };
+		BD26716F247839DA00E0EDC5 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26716E247839DA00E0EDC5 /* DayView.swift */; };
 		BD42F79E2476A7270022AFFF /* mock_events_2.json in Resources */ = {isa = PBXBuildFile; fileRef = BD42F79D2476A6E00022AFFF /* mock_events_2.json */; };
-		BD4DC95D2476648600602461 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC95C2476648600602461 /* EventsViewModel.swift */; };
+		BD4DC95D2476648600602461 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC95C2476648600602461 /* EventsListViewModel.swift */; };
 		BD4DC95F247664E500602461 /* EventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC95E247664E500602461 /* EventsViewModelTests.swift */; };
 		BD4DC9612476658D00602461 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC9602476658D00602461 /* Conflict.swift */; };
 		BD4DC963247665AB00602461 /* ConflictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC962247665AB00602461 /* ConflictTests.swift */; };
@@ -24,6 +27,8 @@
 		BD6CF3682475EC9B002385B5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6CF3672475EC9B002385B5 /* Event.swift */; };
 		BD6CF36A24762A19002385B5 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6CF36924762A19002385B5 /* EventTests.swift */; };
 		BD6CF36D24763C9E002385B5 /* FileUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6CF36C24763C9E002385B5 /* FileUtilities.swift */; };
+		BDCCF5302477F19300E7270D /* mock_event_titles.txt in Resources */ = {isa = PBXBuildFile; fileRef = BDCCF52F2477F19300E7270D /* mock_event_titles.txt */; };
+		BDCCF5322477F4B800E7270D /* FunctionalUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF5312477F4B800E7270D /* FunctionalUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +52,7 @@
 		BD120EE52474F4590094B0F7 /* Upcoming Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Upcoming Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD120EE82474F4590094B0F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD120EEA2474F4590094B0F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BD120EEC2474F4590094B0F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD120EEC2474F4590094B0F7 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		BD120EEE2474F45C0094B0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD120EF12474F45C0094B0F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD120EF42474F45C0094B0F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,8 +62,11 @@
 		BD120F062474F45C0094B0F7 /* Upcoming EventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Upcoming EventsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD120F0A2474F45C0094B0F7 /* UpcomingEventsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsUITests.swift; sourceTree = "<group>"; };
 		BD120F0C2474F45C0094B0F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD26716A24782BCB00E0EDC5 /* DateStepperControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStepperControl.swift; sourceTree = "<group>"; };
+		BD26716C24782D8800E0EDC5 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
+		BD26716E247839DA00E0EDC5 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		BD42F79D2476A6E00022AFFF /* mock_events_2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_events_2.json; sourceTree = "<group>"; };
-		BD4DC95C2476648600602461 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		BD4DC95C2476648600602461 /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		BD4DC95E247664E500602461 /* EventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModelTests.swift; sourceTree = "<group>"; };
 		BD4DC9602476658D00602461 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		BD4DC962247665AB00602461 /* ConflictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictTests.swift; sourceTree = "<group>"; };
@@ -67,6 +75,8 @@
 		BD6CF3672475EC9B002385B5 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		BD6CF36924762A19002385B5 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		BD6CF36C24763C9E002385B5 /* FileUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtilities.swift; sourceTree = "<group>"; };
+		BDCCF52F2477F19300E7270D /* mock_event_titles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mock_event_titles.txt; sourceTree = "<group>"; };
+		BDCCF5312477F4B800E7270D /* FunctionalUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +170,9 @@
 		BD4DC95A24765F2800602461 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BD120EEC2474F4590094B0F7 /* ContentView.swift */,
+				BD120EEC2474F4590094B0F7 /* EventList.swift */,
+				BD26716A24782BCB00E0EDC5 /* DateStepperControl.swift */,
+				BD26716E247839DA00E0EDC5 /* DayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,7 +180,8 @@
 		BD4DC95B2476645F00602461 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				BD4DC95C2476648600602461 /* EventsViewModel.swift */,
+				BD4DC95C2476648600602461 /* EventsListViewModel.swift */,
+				BD26716C24782D8800E0EDC5 /* DayViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 			children = (
 				BD6CF36C24763C9E002385B5 /* FileUtilities.swift */,
 				BD4DC965247677D300602461 /* DateUtilities.swift */,
+				BDCCF5312477F4B800E7270D /* FunctionalUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,6 +204,7 @@
 				BD120EF32474F45C0094B0F7 /* LaunchScreen.storyboard */,
 				BD42F79D2476A6E00022AFFF /* mock_events_2.json */,
 				BD6CF3642475EA5F002385B5 /* mock_events.json */,
+				BDCCF52F2477F19300E7270D /* mock_event_titles.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -311,6 +326,7 @@
 				BD120EF22474F45C0094B0F7 /* Preview Assets.xcassets in Resources */,
 				BD120EEF2474F45C0094B0F7 /* Assets.xcassets in Resources */,
 				BD6CF3652475EA5F002385B5 /* mock_events.json in Resources */,
+				BDCCF5302477F19300E7270D /* mock_event_titles.txt in Resources */,
 				BD42F79E2476A7270022AFFF /* mock_events_2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,14 +352,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD26716D24782D8800E0EDC5 /* DayViewModel.swift in Sources */,
+				BD26716F247839DA00E0EDC5 /* DayView.swift in Sources */,
 				BD4DC966247677D300602461 /* DateUtilities.swift in Sources */,
 				BD4DC9612476658D00602461 /* Conflict.swift in Sources */,
+				BDCCF5322477F4B800E7270D /* FunctionalUtilities.swift in Sources */,
+				BD26716B24782BCB00E0EDC5 /* DateStepperControl.swift in Sources */,
 				BD6CF3682475EC9B002385B5 /* Event.swift in Sources */,
 				BD120EE92474F4590094B0F7 /* AppDelegate.swift in Sources */,
 				BD120EEB2474F4590094B0F7 /* SceneDelegate.swift in Sources */,
-				BD4DC95D2476648600602461 /* EventsViewModel.swift in Sources */,
+				BD4DC95D2476648600602461 /* EventsListViewModel.swift in Sources */,
 				BD6CF36D24763C9E002385B5 /* FileUtilities.swift in Sources */,
-				BD120EED2474F4590094B0F7 /* ContentView.swift in Sources */,
+				BD120EED2474F4590094B0F7 /* EventList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

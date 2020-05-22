@@ -22,6 +22,11 @@ struct Event {
 
 		return overlap.duration > 0 ? Conflict(self, otherEvent) : nil
 	}
+
+	static func fetchAllEvents() -> [Event] {
+//		events = try! Event.eventsFromJSON(FileUtilities.getDataFromFile(named: "mock_events_2.json")!).sorted()
+		return Event.createMockEvents()
+	}
 }
 
 extension Event: Comparable, Hashable {
@@ -52,3 +57,45 @@ extension Event: Decodable {
 		return result
 	}
 }
+
+#if DEBUG
+
+extension Event {
+	static func createMockEvents(count: Int = 1000,
+								 startDate: Date = Date.now,
+								 eventsPerDay: Int = 20,
+								 minEventLength: TimeInterval = 10.minutes,
+								 maxEventLength: TimeInterval = 2.hours) -> [Event] {
+
+		let endDate = startDate + (count / eventsPerDay).days
+		
+		// Converting dates to TimeIntervals to simplivy working with them
+
+		let startDateInterval = startDate.timeIntervalSinceReferenceDate
+		let endDateInterval = endDate.timeIntervalSinceReferenceDate
+
+		let createAndApplyDates:((Date) -> (Date) -> Event) -> Event = { curriedEventCreator in
+			let eventLength = TimeInterval.random(in: minEventLength...maxEventLength)
+			var randomStartTime: TimeInterval
+
+			repeat {
+				randomStartTime = TimeInterval.random(in: startDateInterval...endDateInterval)
+			} while randomStartTime + eventLength > endDateInterval
+
+			let startDate = Date(timeIntervalSinceReferenceDate: randomStartTime)
+			let endDate = Date(timeIntervalSinceReferenceDate: randomStartTime + eventLength)
+			return curriedEventCreator(startDate)(endDate)
+		}
+
+		let randomEventTitles: [String] = FileUtilities.getStringFromFile(named: "mock_event_titles.txt")!.split(separator: "\n").map { String($0) }
+
+		let result = (0..<count)
+			.map { _ -> String in randomEventTitles.randomElement()! }
+			.map(curry(Event.init))
+			.map(createAndApplyDates)
+
+		return result.sorted()
+	}
+}
+
+#endif

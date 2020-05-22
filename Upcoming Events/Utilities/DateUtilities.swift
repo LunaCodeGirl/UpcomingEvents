@@ -49,7 +49,7 @@ extension Int {
 	var minutes: TimeInterval { Double(self) * TimeIntervalType.minute.rawValue }
 	var hours: TimeInterval { Double(self) * TimeIntervalType.hour.rawValue }
 	var days: TimeInterval { Double(self) * TimeIntervalType.day.rawValue }
-	var week: TimeInterval { Double(self) * TimeIntervalType.minute.rawValue }
+	var weeks: TimeInterval { Double(self) * TimeIntervalType.week.rawValue }
 }
 
 extension TimeInterval {

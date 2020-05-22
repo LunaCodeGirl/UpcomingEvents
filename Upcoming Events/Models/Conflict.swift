@@ -9,12 +9,17 @@
 import Foundation
 
 struct Conflict {
+	private static var counter = 0
+
 	let first: Event
 	let second: Event
+	let id: Int
 
 	init(_ firstEvent: Event, _ secondEvent: Event) {
 		first = min(firstEvent, secondEvent)
 		second = max(firstEvent, secondEvent)
+		id = Conflict.counter
+		Conflict.counter += 1
 	}
 }
 
@@ -26,6 +31,11 @@ extension Conflict: Hashable {
 			return lhs.first == rhs.second && lhs.second == rhs.first
 		}
 	}
+
+	func hash(into hasher: inout Hasher) {
+        hasher.combine(first)
+        hasher.combine(second)
+    }
 }
 
 extension Conflict: CustomStringConvertible, CustomDebugStringConvertible {
