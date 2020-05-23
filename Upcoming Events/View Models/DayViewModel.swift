@@ -29,8 +29,8 @@ struct Day: Hashable  {
 }
 
 class DayViewModel: ObservableObject {
-	static let shared: DayViewModel = {
-		let events = Event.fetchAllEvents()
+	private static let generatedData: DayViewModel = {
+		let events = Event.createMockEvents(count: 100, startDate: 1.weeks.ago, eventsPerDay: 4)
 
 		 let days = Dictionary(grouping: events) { (event:Event) -> Day in
 			return Day(fromDate: event.startDate)
@@ -38,6 +38,20 @@ class DayViewModel: ObservableObject {
 
 		return DayViewModel(days: days)
 	}()
+
+	private static let givenMockData: DayViewModel = {
+		let events = try! Event.eventsFromJSON(FileUtilities.getDataFromFile(named: "mock_events.json")!).sorted()
+
+		 let days = Dictionary(grouping: events) { (event:Event) -> Day in
+			return Day(fromDate: event.startDate)
+		}
+
+		return DayViewModel(days: days)
+	}()
+
+	static var shared: DayViewModel {
+		return UserDefaults.standard.bool(forKey: "IsUsingProvidedMockDataKey") ? self.givenMockData : self.generatedData
+	}
 
 	@Published private(set) var currentDay: Day
 	@Published private(set) var currentEvents: [Event]

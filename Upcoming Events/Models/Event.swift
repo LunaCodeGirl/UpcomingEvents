@@ -17,15 +17,25 @@ struct Event {
 		return DateInterval(start: startDate, end: endDate)
 	}
 
+	var isInPast: Bool {
+		endDate < Date.now
+	}
+
+//	static func fetchAllEvents() -> [Event] {
+//		//		events = try! Event.eventsFromJSON(FileUtilities.getDataFromFile(named: "mock_events_2.json")!).sorted()
+//		return Event.createMockEvents(count: 100, startDate: 1.weeks.ago, eventsPerDay: 4)
+//	}
+
 	func conflictsWith(_ otherEvent: Event) -> Conflict? {
 		guard let overlap = dateInterval.intersection(with: otherEvent.dateInterval) else { return nil }
 
 		return overlap.duration > 0 ? Conflict(self, otherEvent) : nil
 	}
 
-	static func fetchAllEvents() -> [Event] {
-//		events = try! Event.eventsFromJSON(FileUtilities.getDataFromFile(named: "mock_events_2.json")!).sorted()
-		return Event.createMockEvents()
+	func conflictingEvent(forConflict conflict: Conflict) -> Event? {
+		guard conflict.first == self || conflict.second == self else { return nil }
+
+		return (conflict.first == self) ? conflict.second : conflict.first
 	}
 }
 

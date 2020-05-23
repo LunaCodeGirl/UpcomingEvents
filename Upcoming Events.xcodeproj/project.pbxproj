@@ -19,7 +19,6 @@
 		BD26716F247839DA00E0EDC5 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26716E247839DA00E0EDC5 /* DayView.swift */; };
 		BD42F79E2476A7270022AFFF /* mock_events_2.json in Resources */ = {isa = PBXBuildFile; fileRef = BD42F79D2476A6E00022AFFF /* mock_events_2.json */; };
 		BD4DC95D2476648600602461 /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC95C2476648600602461 /* EventsListViewModel.swift */; };
-		BD4DC95F247664E500602461 /* EventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC95E247664E500602461 /* EventsViewModelTests.swift */; };
 		BD4DC9612476658D00602461 /* Conflict.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC9602476658D00602461 /* Conflict.swift */; };
 		BD4DC963247665AB00602461 /* ConflictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC962247665AB00602461 /* ConflictTests.swift */; };
 		BD4DC966247677D300602461 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4DC965247677D300602461 /* DateUtilities.swift */; };
@@ -67,7 +66,6 @@
 		BD26716E247839DA00E0EDC5 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		BD42F79D2476A6E00022AFFF /* mock_events_2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_events_2.json; sourceTree = "<group>"; };
 		BD4DC95C2476648600602461 /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
-		BD4DC95E247664E500602461 /* EventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModelTests.swift; sourceTree = "<group>"; };
 		BD4DC9602476658D00602461 /* Conflict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflict.swift; sourceTree = "<group>"; };
 		BD4DC962247665AB00602461 /* ConflictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflictTests.swift; sourceTree = "<group>"; };
 		BD4DC965247677D300602461 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			children = (
 				BD120F012474F45C0094B0F7 /* Info.plist */,
 				BD6CF36924762A19002385B5 /* EventTests.swift */,
-				BD4DC95E247664E500602461 /* EventsViewModelTests.swift */,
 				BD4DC962247665AB00602461 /* ConflictTests.swift */,
 			);
 			path = "Upcoming EventsTests";
@@ -372,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6CF36A24762A19002385B5 /* EventTests.swift in Sources */,
-				BD4DC95F247664E500602461 /* EventsViewModelTests.swift in Sources */,
 				BD4DC963247665AB00602461 /* ConflictTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
